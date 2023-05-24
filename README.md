@@ -48,5 +48,5 @@ Para lanzar los test:
 Para generar el código de produccion:
 > `pnpm run build`
 
-Si _pnpm_ no está intalado, se puede usar _npm_ en su lugat sin problemas.
+Si _pnpm_ no está intalado, se puede usar _npm_ en su lugar sin problemas.
 
