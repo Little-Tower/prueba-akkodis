@@ -1,1 +1,1 @@
-export * from './fetchPodcast';
+export * from './fetchPodcast.service';

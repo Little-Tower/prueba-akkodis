@@ -7,7 +7,7 @@ Bienvenido a la aplicación **Podcaster**, donde podrás descubrir y oír los 10
 - Reproductor de audio.
 
 ### Tecnologías usadas
-Esta aplicación está desarrollada con React, Vite, TypeScript, Sass y Vitest. Además, las librerías React-Router, testing-library/React y react-redux.
+Esta aplicación está desarrollada con React, Vite, TypeScript, Sass y Vitest. Además, las librerías React-Router, testing-library/React, react-redux, redux-toolkit y axios.
 
 ### Estructura del proyecto
 La esctructura del proyecto es la siguiente:

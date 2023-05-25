@@ -1,5 +1,30 @@
+@font-face {
+  font-family: 'poppins-regular';
+  src: local('poppins-regular'), url(@/assets/fonts/Poppins-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'poppins-bold';
+  src: local('poppins-bold'), url(@/assets/fonts/Poppins-Bold.ttf) format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'poppins-italic';
+  src: local('poppins-italic'), url(@/assets/fonts/Poppins-Italic.ttf) format('truetype');
+  font-weight: italic;
+}
+
+@font-face {
+  font-family: 'poppins-light';
+  src: local('poppins-light'), url(@/assets/fonts/Poppins-Light.ttf) format('truetype');
+  font-weight: light;
+}
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family:'poppins-regular', 'poppins-bold', 'poppins-italic', 'poppins-light';
 }

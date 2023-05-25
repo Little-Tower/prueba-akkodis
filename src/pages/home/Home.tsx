@@ -1,21 +1,42 @@
-import { fetchPodcast, podcastUrl } from '@/services';
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react';
+import { getPodcast } from '@/services';
+import { SearchBar, Card, PodcastInfo } from '@/components';
+import styles from './Home.module.scss';
+import useFetchAndLoad from '@/hooks/useFetchLoad';
+import { podcastAdapter } from '@/adapters/podcast.adapter';
 
 const Home = () => {
-  const [podcastsData, setpodcastsData] = useState();
+  const { callEndpoint, loading } = useFetchAndLoad();
 
-  const getPodcasts = async () => {
-    const result = await fetchPodcast(podcastUrl);
-    setpodcastsData(result.feed.entry);
+  const getPodcastData = async () => {
+    try {
+      const result = await callEndpoint(getPodcast());
+      console.log(podcastAdapter(result));
+      
+      
+    } catch (err: any) {
+      throw err;
+    }
   }
 
   useEffect(() => {
-    getPodcasts();
-  }, []);
+    getPodcastData();
+  }, [])
+  
 
 
   return (
-    <div>Home</div>
+    <div className={styles.homeMain}>
+      <SearchBar />
+      <div className={styles.cardsWrapper}>
+        <Card />
+        <Card />
+        <Card />
+        <PodcastInfo />
+        {loading ? <p>Loading</p> : <p>Done</p>}
+      </div>
+
+    </div>
   )
 }
 

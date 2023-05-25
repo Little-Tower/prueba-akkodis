@@ -7,6 +7,5 @@ export interface Podcast {
         {
             image: string
         }
-    ],
-    releaseDate: string
+    ]
 }
