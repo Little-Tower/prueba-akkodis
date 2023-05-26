@@ -9,7 +9,7 @@ interface itemListInterface {
 
 const ItemList: FC<itemListInterface> = ({ title, date, duration }) => {
   const utcDate = new Date(date);
-  const localDate = utcDate.toLocaleString("en-US", {
+  const localDate = utcDate.toLocaleString("es-ES", {
     dateStyle: "short",
   });
   const finalData = localDate.toString()

@@ -2,21 +2,20 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { PodcastInfo } from '@/components';
 import { useSelector } from 'react-redux';
-import styles from './Episode.module.scss'
 import { AppStore } from '@/redux/store';
 import{ Episode as EpisodeModel}  from '@/models';
+import styles from './Episode.module.scss'
 
 const Episode = () => {
   const { podcastId } = useParams();
-  const [data, setData] = useState<EpisodeModel>()
+  const [data, setData] = useState<EpisodeModel>();
   const episodeSelect = useSelector((store: AppStore) => store.episode.episodeSelect);
 
   useEffect(() => {
     if (episodeSelect) {
       setData(episodeSelect);
     }
-  }, [])
-
+  }, []);
 
   return (
     <div className={styles.episodeMain} >

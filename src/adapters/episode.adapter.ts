@@ -11,7 +11,7 @@ export const episodeSchema = (data: any): Episode => {
     }
 }
 
-export const podcastAdapter = (result: any): Episode[] => {
+export const episodesAdapted = (result: any): Episode[] => {
     let episodesAdapted: Episode[] = []
 
     result.results.shift();

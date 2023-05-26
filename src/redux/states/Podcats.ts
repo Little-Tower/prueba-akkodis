@@ -8,6 +8,7 @@ export const podcastsSlicer = createSlice({
     initialState: {
         podcastsList : initialStatePodcast,
         loading: false,
+        updateDate: 0
     },
     reducers: {
         addPodcasts: (state, action: PayloadAction<Podcast[]>) => {
@@ -16,10 +17,13 @@ export const podcastsSlicer = createSlice({
         setLoading: (state, action: PayloadAction<boolean>) => {
             state.loading = action.payload;
         },
+        setUpdateDate: (state, action: PayloadAction<number>) => {
+            state.updateDate = action.payload;
+        },
        
 
     }
 });
 
-export const { addPodcasts, setLoading } = podcastsSlicer.actions;
+export const { addPodcasts, setLoading, setUpdateDate } = podcastsSlicer.actions;
 export default podcastsSlicer.reducer;

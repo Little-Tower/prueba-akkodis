@@ -5,7 +5,7 @@ import styles from './Card.module.scss';
 interface cardInterface {
   title: string,
   artist: any
-  img: string[] | any
+  img: string
 }
 
 const Card:FC<cardInterface> = ({ title, artist, img}) => {

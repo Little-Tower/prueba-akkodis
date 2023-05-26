@@ -21,7 +21,7 @@ const SearchBar: FC<searchBarInterface> = ({ items, setfilteredData, filteredLen
   const filteredItems = () => {
     if (items) {
       return items.filter((item: Podcast) => {
-        if (item.title.toLowerCase().includes(query.toLowerCase())) {
+        if (item.title.toLowerCase().includes(query.toLowerCase()) || item.artist.toLowerCase().includes(query.toLowerCase())) {
           return item;
         }
       })

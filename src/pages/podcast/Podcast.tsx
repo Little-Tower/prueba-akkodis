@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import useFetchAndLoad from '@/hooks/useFetchLoad';
 import { getUniquePodcast } from '@/services';
 import { ItemList, PodcastInfo } from '@/components';
-import styles from './Podcast.module.scss';
 import { useDispatch } from 'react-redux';
 import { setLoading, setEpisode} from '@/redux/states';
 import { convertToJSON } from '@/utils/convertToJSON.utility';
 import { Episode } from '@/models/Episode';
-import { podcastAdapter } from '@/adapters/episode.adapter';
+import { episodesAdapted } from '@/adapters';
+import styles from './Podcast.module.scss';
 
 const Podcast = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const Podcast = () => {
     try {
       const result = await callEndpoint(getUniquePodcast(podcastId));
       const dataJson = convertToJSON(result.data.contents);
-      setData(podcastAdapter(dataJson));      
+      setData(episodesAdapted(dataJson));      
     } catch (err: any) {
       throw err;
     }
@@ -68,8 +68,6 @@ const Podcast = () => {
           {handlerRenderEpisode()}
         </div>
       </div>
-
-      <Outlet />
     </div>
   )
 }

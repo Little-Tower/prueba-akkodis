@@ -4,11 +4,11 @@ import { addPodcasts, setLoading } from '@/redux/states';
 import { getPodcasts } from '@/services';
 import { Card, SearchBar } from '@/components';
 import useFetchAndLoad from '@/hooks/useFetchLoad';
-import { podcastAdapter } from '@/adapters/podcast.adapter';
+import { podcastAdapter } from '@/adapters';
 import { Podcast } from '@/models';
 import { AppStore } from '@/redux/store';
-import styles from './Home.module.scss';
 import { Link } from 'react-router-dom';
+import styles from './Home.module.scss';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -50,7 +50,6 @@ const Home = () => {
       }</>
     )
   }
-
 
   return (
     <div className={styles.homeMain}>

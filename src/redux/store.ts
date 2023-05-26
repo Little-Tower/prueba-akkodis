@@ -4,7 +4,7 @@ import { podcastsSlicer, episodeSlicer } from './states';
 
 export interface AppStore {
     //Any is bad but used to don't produce a Typescript error.
-    podcasts:  {podcastsList: Podcast[]; loading: boolean} | any;
+    podcasts:  {podcastsList: Podcast[]; loading: boolean; updateDate: number} | any;
     episode: {episodeSelect: Episode} | any;
 }
 
