@@ -1,16 +1,43 @@
-import React from 'react';
+import { FC, useEffect, useState } from 'react';
+import { AppStore } from '@/redux/store';
+//import { findOnePodcast } from '@/utils/findOnePodcast.utility';
 import styles from './PodcastInfo.module.scss';
+import { useSelector } from 'react-redux';
+import { Podcast } from '@/models';
 
-const PodcastInfo = () => {
+interface podcastInfoInterface {
+  podcastId: string | any;
+}
+
+const PodcastInfo: FC<podcastInfoInterface> = ({ podcastId }) => {
+  const [data, setData] = useState<Podcast>();
+  const podcastsList = useSelector((store: AppStore) => store.podcasts.podcastsList);
+
+  useEffect(() => {
+    if (podcastsList) {
+      const result = podcastsList.filter((e: Podcast) => {
+        if (e.id === parseInt(podcastId)) return e;
+      });
+      setData(result[0]);
+    }
+
+  }, []);
+
   return (
     <div className={styles.podcastInfoMain}>
-      <span></span>
-      <hr />
-      <h3>Song Explorer</h3>
-      <p>Lorem ipsum dolor sit amet.</p>
-      <hr />
-      <h4>Description</h4>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima doloribus adipisci accusamus reprehenderit voluptatibus ipsa.</p>
+      {data ?
+        <>
+          <img src={data.img}/>
+          <hr />
+          <h3>{data.title}</h3>
+          <p>by. {data.artist}</p>
+          <hr />
+          <h4>Description</h4>
+          <p>{data.summary}</p>
+        </>
+        :
+        <p>No data</p>
+      }
     </div>
   )
 }

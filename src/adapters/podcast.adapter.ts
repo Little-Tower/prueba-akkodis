@@ -5,8 +5,9 @@ export const podcastSchema = (data: any): Podcast => {
         title: data.title.label,
         category: data.category.attributes.label,
         summary: data.summary.label,
-        id: data.id.attributes["im:id"],
-        imgs: [data["im:image"]]
+        id: parseInt(data.id.attributes["im:id"]),
+        artist: data["im:artist"].label,
+        img: data["im:image"][2].label
     }
 }
 

@@ -1,11 +1,20 @@
-import React from 'react';
-import styles from './Card.module.scss'
+import { FC } from 'react';
+import styles from './Card.module.scss';
 
-const Card = () => {
+
+interface cardInterface {
+  title: string,
+  artist: any
+  img: string[] | any
+}
+
+const Card:FC<cardInterface> = ({ title, artist, img}) => {
+  
   return (
     <div className={styles.cardMain}>
-      <h1>Titulo de la carta</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, itaque?</p>
+      <img src={img}/>
+      <h1>{title}</h1>
+      <p>{artist}</p>
     </div>
   )
 }
