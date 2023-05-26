@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from 'react';
 import { AppStore } from '@/redux/store';
-//import { findOnePodcast } from '@/utils/findOnePodcast.utility';
 import styles from './PodcastInfo.module.scss';
 import { useSelector } from 'react-redux';
 import { Podcast } from '@/models';
@@ -27,7 +26,7 @@ const PodcastInfo: FC<podcastInfoInterface> = ({ podcastId }) => {
     <div className={styles.podcastInfoMain}>
       {data ?
         <>
-          <img src={data.img}/>
+          <img src={data.img} alt='Img podcast'/>
           <hr />
           <h3>{data.title}</h3>
           <p>by. {data.artist}</p>
@@ -42,4 +41,4 @@ const PodcastInfo: FC<podcastInfoInterface> = ({ podcastId }) => {
   )
 }
 
-export default PodcastInfo
+export default PodcastInfo;

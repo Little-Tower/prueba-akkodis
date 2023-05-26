@@ -37,4 +37,4 @@ const Episode = () => {
   )
 }
 
-export default Episode
+export default Episode;

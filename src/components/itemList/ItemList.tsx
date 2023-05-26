@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import styles from './ItemList.module.scss'
-
+import styles from './ItemList.module.scss';
 interface itemListInterface {
   title: string;
   date: string;
@@ -28,4 +27,4 @@ const ItemList: FC<itemListInterface> = ({ title, date, duration }) => {
   )
 }
 
-export default ItemList
+export default ItemList;

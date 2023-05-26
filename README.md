@@ -19,20 +19,19 @@ La esctructura del proyecto es la siguiente:
 │   │   ├── card
 │   │   ├── header
 │   │   ├── itemList
-│   │   ├── list
-│   │   ├── player
 │   │   ├── podcastInfo
 │   │   └── searchBar
 │   ├── hooks
 │   ├── models
-│   ├── redux
-│   ├── services
-│   ├── types  
-│   ├── utils
 │   ├── pages
 │   │   ├── episode
 │   │   ├── home
 │   │   └── podcast
+│   ├── redux
+│   │   └── states
+│   ├── services
+│   ├── types  
+│   ├── utils
 └── package.json
 ```
 

@@ -12,7 +12,7 @@ const Card:FC<cardInterface> = ({ title, artist, img}) => {
   
   return (
     <div className={styles.cardMain}>
-      <img src={img}/>
+      <img src={img} alt='Img podcast'/>
       <h1>{title}</h1>
       <p>{artist}</p>
     </div>
