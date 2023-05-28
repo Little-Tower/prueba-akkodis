@@ -15,7 +15,7 @@ describe('ItemList', () => {
 
   it('renders itemList data correctly', () => {
     expect(screen.getByText(/Test title/i)).toBeDefined();
-    expect(screen.getByText('26/5/23')).toBeDefined();
+    expect(screen.getByText('26/05/2023')).toBeDefined();
     expect(screen.getByText(/02:00/i)).toBeDefined();
   });
 });

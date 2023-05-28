@@ -8,16 +8,16 @@ export const podcastsSlicer = createSlice({
     initialState: {
         podcastsList : initialStatePodcast,
         loading: false,
-        updateDate: 0
+        updateDate: new Date().toString(),
     },
     reducers: {
         addPodcasts: (state, action: PayloadAction<Podcast[]>) => {
-            state.podcastsList = [...state.podcastsList, ...action.payload]
+            state.podcastsList = action.payload;
         },
         setLoading: (state, action: PayloadAction<boolean>) => {
             state.loading = action.payload;
         },
-        setUpdateDate: (state, action: PayloadAction<number>) => {
+        setUpdateDate: (state, action: PayloadAction<string>) => {
             state.updateDate = action.payload;
         },
        

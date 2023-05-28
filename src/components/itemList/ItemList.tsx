@@ -7,21 +7,21 @@ interface itemListInterface {
 }
 
 const ItemList: FC<itemListInterface> = ({ title, date, duration }) => {
-  const utcDate = new Date(date);
-  const localDate = utcDate.toLocaleString("es-ES", {
-    dateStyle: "short",
-  });
-  const finalData = localDate.toString()
+  const dateRaw = new Date(date);
+  const dateFomatter = (n: number) => {
+    return n < 10 ? "0" + n : n;
+  }
+  const finalDate = dateFomatter(dateRaw.getDate()) + "/" + dateFomatter(dateRaw.getMonth() + 1) + "/" + dateRaw.getFullYear();
 
-  const millisDate = new Date(1000 * Math.round(duration / 1000));
+  const millisTime = new Date(1000 * Math.round(duration / 1000));
   const durationFormater = (i: number) => { return ('0' + i).slice(-2); }
-  const finalDuration = durationFormater(millisDate.getUTCMinutes()) + ':' + durationFormater(millisDate.getUTCSeconds());
+  const finalDuration = durationFormater(millisTime.getUTCMinutes()) + ':' + durationFormater(millisTime.getUTCSeconds());
 
- 
+
   return (
     <div className={styles.itemListMain}>
       <p>{title}</p>
-      <p>{finalData}</p>
+      <p>{finalDate}</p>
       <p>{finalDuration}</p>
     </div>
   )

@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from 'react';
 import { AppStore } from '@/redux/store';
-import styles from './PodcastInfo.module.scss';
 import { useSelector } from 'react-redux';
 import { Podcast } from '@/models';
-
+import styles from './PodcastInfo.module.scss';
+import { findOnePodcast } from '@/utils';
 interface podcastInfoInterface {
   podcastId: string | any;
 }
@@ -14,19 +14,16 @@ const PodcastInfo: FC<podcastInfoInterface> = ({ podcastId }) => {
 
   useEffect(() => {
     if (podcastsList) {
-      const result = podcastsList.filter((e: Podcast) => {
-        if (e.id === parseInt(podcastId)) return e;
-      });
-      setData(result[0]);
+      const result = findOnePodcast(podcastId, podcastsList);
+      setData(result);
     }
-
   }, []);
 
   return (
     <div className={styles.podcastInfoMain}>
       {data ?
         <>
-          <img src={data.img} alt='Img podcast'/>
+          <img src={data.img} alt='Img podcast' />
           <hr />
           <h3>{data.title}</h3>
           <p>by. {data.artist}</p>

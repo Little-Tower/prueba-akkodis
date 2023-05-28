@@ -53,6 +53,10 @@ describe('Podcast', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     vi.resetAllMocks();
+    render(
+      <Provider store={store}>
+        <Podcast />
+      </Provider>)
   });
 
   it('renders podcast page correctly', async () => {

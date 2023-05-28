@@ -7,6 +7,13 @@ export interface Episode {
   episodeUrl: string
 }
 
+export interface EpisodeStore {
+  id: number,
+  dateUpdate: string,
+  episodes: Episode[]
+}
+
+
 export const EpisodeEmpty = {
   title: '',
   id: 0,
